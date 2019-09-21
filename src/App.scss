@@ -1,0 +1,295 @@
+@import url('https://fonts.googleapis.com/css?family=Righteous&display=swap');
+
+$background: #282c34;
+$backgroundTransp: rgba(40, 44, 52, .6);
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  text-align: left;
+}
+
+.App-body {
+  align-items: center;
+  background-color: $background;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-size: 25px;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.container {
+  margin-top: 350px;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.desc {
+  width: 700px;
+}
+
+.thirty-padding-top {
+  padding-top: 30px;
+}
+
+.header-app {
+  font-family: 'Righteous', cursive;
+  position: absolute;
+  top: 0;
+}
+
+.image-header {
+  filter: invert(100%);
+  transition: 1s;
+  width: 900px;
+}
+
+.image-header:hover {
+  filter: invert(85%);
+}
+
+.info {
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.info-grid {
+  margin: 10px;
+}
+
+.logo-text {
+  color: $background;
+  font-size: 100px;
+  text-align: center;
+  position: absolute;
+  top: 205px;
+  transition: .5s;
+  width: 100%;
+}
+
+.logo-text:hover {
+  color: #2d313b;
+  cursor: default;
+  transition: .5s;
+}
+
+.modal-image {
+  position: relative;
+  height: 75vh;
+  width: auto;
+  min-width: 100%;
+  filter: saturate(120%);
+}
+
+.modal-park-desc {
+  font-size: 16px;
+  margin-top: 25px;
+  max-width: 100%;
+}
+
+.modal-resp {
+  background-color: $backgroundTransp;
+  width: calc(100% - 5px);
+  margin-top: 1px;
+  margin-left: -5px;
+  padding-left: 5px;
+  padding-bottom: 5px;
+}
+
+.parks {
+  margin: 0 auto;
+}
+
+.park-container {
+  align-items: center;
+  border: 3px solid white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 5px;
+  margin: 10px 0;
+  transition: 1.5s;
+  width: 900px;
+}
+
+.park-container:hover {
+  background-color: rgba(255,255,255, .1);
+  cursor: pointer;
+  transition: 1.5s;
+}
+
+.park-container:hover .park-thumbnail {
+  margin-left: 10px;
+  padding: 5px;
+}
+
+.park-image-container {
+  width: 85%;
+  overflow: hidden;
+}
+
+.park-info {
+  margin: 10px;
+  width: 35%;
+}
+
+.park-modal {
+  background-color: $background;
+  border: 3px solid white;
+  border-radius: 5px;
+  display: block;
+  height: 75vh;
+  left: 12.5vw;
+  position: fixed;
+  top: 12.5vh;
+  width: 75vw;
+  z-index: 10;
+}
+
+.park-name {
+  margin-bottom: 5px;
+}
+
+.park-thumbnail {
+  border: 5px solid white;
+  border-radius: 50%;
+  height: 150px;
+  transition: 1s;
+  width: 150px;
+  transition: 1s;
+}
+
+.single-park-flex {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+@media (max-width: 1200px) {
+
+  .modal-park-desc {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1060px) {
+
+  .modal-park-desc {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 920px) {
+
+  .info-grid {
+    margin-right: 15px;
+  }
+
+  .modal-resp {
+    position: absolute;
+    left: 5px;
+    display: flex;
+    flex-direction: row;
+    top: 52.5px;
+  }
+
+  .est, .area, .vis {
+    padding: 0 10px 0 0 !important;
+  }
+
+  .park-info {
+    width: 0;
+    margin: 0;
+  }
+
+  .park-image-container {
+    width: 100%;
+  }
+
+  .modal-header, .modal-sub-header {
+    top: 0;
+    position: absolute;
+    left: 0;
+    padding-left: 5px;
+    background-color: $backgroundTransp;
+    width: calc(100% - 5px);
+  }
+
+  .modal-sub-header {
+    top: 34px;
+  }
+
+  .modal-park-desc {
+    position: absolute;
+    width: calc(100% - 10px);
+    left: 0;
+    background-color: $backgroundTransp;
+    bottom: 0;
+    padding: 5px;
+  }
+
+  .desc {
+    width: 80vw;
+  }
+
+  .park-thumbnail {
+    height: 15vw;
+    width: 15vw;
+    margin: 5px 0;
+  }
+
+  .container {
+    margin-top: 36vw;
+  }
+
+  .logo-text {
+    font-size: 11.5vw;
+    top: 22.5vw;
+  }
+
+  .image-header {
+    width: 100vw;
+  }
+
+  .park-container {
+    width: calc(100vw - 15px);
+    border-left: 0;
+    border-right: 0;
+    margin: 5px 0;
+  }
+}
+
+@media (max-width: 750px) {
+
+  .park-modal {
+    border-left: 0;
+    border-right: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .park-container {
+    justify-content: flex-start;
+    margin: 0;
+    border-bottom: 0;
+  }
+
+  .desc {
+    width: 75vw;
+  }
+}
+
+@media (max-width: 500px) {
+
+  .park-container:hover .park-thumbnail {
+    margin-left: 0;
+    padding: 0;
+  }
+}
