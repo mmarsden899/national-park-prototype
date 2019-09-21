@@ -17,7 +17,6 @@ class SinglePark extends Component {
       return park.Name === parkName
     })
     this.setState({ park: specificPark[0]})
-    console.log(specificPark, this.state.park)
   }
 
 

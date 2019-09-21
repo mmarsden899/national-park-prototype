@@ -27,7 +27,6 @@ class Parks extends Component {
 
 
   render () {
-    console.log(this.state.parks)
     const { parks } = this.state
     const parksHTML = parks.map(park => (
       <div key={park.Name} onClick={this.openModal} id={park.Name} data={park} className="parks">
