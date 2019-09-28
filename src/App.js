@@ -3,7 +3,9 @@ import './App.scss';
 
 import Parks from './Parks'
 import Header from './Header'
-import CreateParks from './CreateParks'
+
+// Admin
+// import CreateParks from './CreateParks'
 
 function App() {
   return (
@@ -11,7 +13,6 @@ function App() {
       <div className="App-body">
         <Header/>
         <Parks/>
-        <CreateParks/>
       </div>
     </div>
   );
