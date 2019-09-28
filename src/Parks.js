@@ -13,8 +13,13 @@ class Parks extends Component {
     }
   }
 
+  thisFunction = () => {
+    
+  }
+
   componentDidMount () {
     this.setState({ parks: parksData })
+    this.thisFunction()
   }
 
   openModal = event => {
