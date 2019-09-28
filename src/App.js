@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.scss';
-
 import Parks from './Parks'
 import Header from './Header'
 

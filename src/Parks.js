@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 import SinglePark from './SinglePark'
-const parksData = require('./parks.json')
+import apiUrl from './apiConfig'
 
 class Parks extends Component {
   constructor (props) {
@@ -13,13 +14,10 @@ class Parks extends Component {
     }
   }
 
-  thisFunction = () => {
-    
-  }
-
-  componentDidMount () {
-    this.setState({ parks: parksData })
-    this.thisFunction()
+  async componentDidMount () {
+    const response = await axios(`${apiUrl}/parks`)
+    this.setState({ parks: response.data.parks })
+    console.log(this.state)
   }
 
   openModal = event => {
@@ -34,9 +32,9 @@ class Parks extends Component {
   render () {
     const { parks } = this.state
     const parksHTML = parks.map(park => (
-      <div key={park.Name} onClick={this.openModal} id={park.Name} data={park} className="parks">
+      <div key={park._id} onClick={this.openModal} id={park.Name} data={park} className="parks">
         <div className="park-container">
-        <img src={park.Thumbnail}
+        <img src={park.image}
              alt={"thumbnail of " + park.Name}
              className="park-thumbnail"/>
           <div className="info-grid">
