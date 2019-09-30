@@ -17,7 +17,6 @@ class Parks extends Component {
   async componentDidMount () {
     const response = await axios(`${apiUrl}/parks`)
     this.setState({ parks: response.data.parks })
-    console.log(this.state)
   }
 
   openModal = event => {
