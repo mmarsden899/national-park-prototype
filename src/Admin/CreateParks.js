@@ -1,11 +1,38 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import apiUrl from './apiConfig'
-const parksData = require('./parks.json')
+import apiUrl from '../apiConfig'
+const parksData = require('../parks.json')
 
 class CreateParks extends Component {
+  constructor (props) {
+    super(props)
 
-  componentDidMount () {
+  this.state = {
+    parks: []
+  }
+}
+
+  async componentDidMount () {
+    const response = await axios(`${apiUrl}/parks`)
+    this.setState({ parks: response.data.parks })
+    console.log(parksData.length)
+  }
+
+  updateParks = () => {
+    const { parks } = this.state
+    for (let i =  0; i < this.state.parks.length; i++) {
+      if (parks[i].name === parksData[i].Name) {
+        axios({
+          url: apiUrl + '/parks/' + parks[i]._id,
+          method: 'PATCH',
+          data: {
+            park: {
+              thumbnail: parksData[i].Thumbnail
+            }
+          }
+        })
+      }
+    }
   }
 
   sendParks() {
@@ -32,7 +59,7 @@ class CreateParks extends Component {
   render () {
     return (
       <div>
-        <button onClick={this.sendParks}>Send Park</button>
+        <button onClick={this.updateParks}>Send Park</button>
       </div>
     )
   }

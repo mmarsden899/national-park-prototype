@@ -32,16 +32,16 @@ class Parks extends Component {
   render () {
     const { parks } = this.state
     const parksHTML = parks.map(park => (
-      <div key={park._id} onClick={this.openModal} id={park.Name} data={park} className="parks">
+      <div key={park._id} onClick={this.openModal} id={park._id} className="parks">
         <div className="park-container">
-        <img src={park.image}
-             alt={"thumbnail of " + park.Name}
+        <img src={park.thumbnail}
+             alt={"thumbnail of " + park.name}
              className="park-thumbnail"/>
           <div className="info-grid">
-            <p className="park-name">{park.Name} National Park</p>
-            <p className="info"> <b>Location:</b> {park.Location} <b>Founded:</b> {park.Established}</p>
-            <p className="info"> <b>Total Area:</b> {park.Area} <b>Total Visitors:</b> {park["Recreation visitors"]}</p>
-            <p className="info desc">{park.Description}</p>
+            <p className="park-name">{park.name} National Park</p>
+            <p className="info"> <b>Location:</b> {park.location} <b>Founded:</b> {park.established}</p>
+            <p className="info"> <b>Total Area:</b> {park.area} <b>Total Visitors:</b> {park.rec_visitors}</p>
+            <p className="info desc">{park.description}</p>
           </div>
         </div>
       </div>

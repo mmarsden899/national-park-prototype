@@ -4,7 +4,7 @@ import Parks from './Parks'
 import Header from './Header'
 
 // Admin
-// import CreateParks from './CreateParks'
+// import CreateParks from './Admin/CreateParks'
 
 function App() {
   return (
