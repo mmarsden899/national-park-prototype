@@ -1,10 +1,16 @@
 import React from 'react'
 import ScrollToTop from 'react-scroll-up'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCaretSquareUp } from '@fortawesome/free-solid-svg-icons'
 
 function Scroll() {
   return (
-    <ScrollToTop showUnder={160}>
-      <span>UP</span>
+    <ScrollToTop
+      showUnder={160}
+      duration={1500}
+      easing={'easeInOutCubic'}
+      className="scroll-container">
+      <FontAwesomeIcon icon={faCaretSquareUp} className="scrollUp"/>
     </ScrollToTop>
 )}
 
