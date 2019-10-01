@@ -1,0 +1,26 @@
+$background: #282c34;
+$background-transp: rgba(40, 44, 52,0);
+$offwhite: #cccccc;
+
+.navbar {
+  position: sticky;
+  width: 100%;
+  top: 0;
+}
+
+.navbar-container {
+  background-color: $background;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.gradient {
+  height: 25px;
+  background: linear-gradient(0deg, $background-transp 0%, $background 100%);
+}
+
+.navbar-home {
+  color: $offwhite;
+  text-decoration: none;
+}

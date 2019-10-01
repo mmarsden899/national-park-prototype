@@ -1,20 +1,32 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './App.scss';
+import './Navbar.scss';
 import Parks from './Parks'
+import {Route} from 'react-router-dom';
 import Header from './Header'
+import NavBar from './NavBar'
+import Callback from './Callback';
 
 // Admin
 // import CreateParks from './Admin/CreateParks'
 
-function App() {
+class App extends Component {
+  render() {
   return (
     <div className="App">
+      <NavBar/>
       <div className="App-body">
-        <Header/>
-        <Parks/>
+        <Route exact path ="/" render={() => (
+          <Header/>
+        )} />
+        <Route exact path="/" render={() => (
+          <Parks/>
+        )} />
       </div>
+      <Route exact path='/callback' component={Callback}/>
     </div>
-  );
+  )
+}
 }
 
 export default App;
