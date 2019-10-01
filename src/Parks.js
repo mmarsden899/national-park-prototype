@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import SinglePark from './SinglePark'
 import apiUrl from './apiConfig'
+// import auth0Client from './Auth';
 
 class Parks extends Component {
   constructor (props) {
