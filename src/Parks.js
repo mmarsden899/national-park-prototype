@@ -24,7 +24,9 @@ class Parks extends Component {
   }
 
   closeModal = () => {
-    this.setState({modal: !this.state.modal})
+    if (this.state.modal) {
+    this.setState({modal: false})
+    }
   }
 
 

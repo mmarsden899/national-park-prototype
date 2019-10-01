@@ -6,7 +6,7 @@ function NavBar(props) {
   const signOut = () => {
     auth0Client.signOut();
     props.history.replace('/');
-  };
+  }
 
   return (
     <nav className="navbar">
@@ -29,7 +29,7 @@ function NavBar(props) {
       <div className="gradient">
       </div>
     </nav>
-  );
+  )
 }
 
 export default withRouter(NavBar);
