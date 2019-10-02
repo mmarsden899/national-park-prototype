@@ -9,10 +9,12 @@ $offwhite: #cccccc;
 }
 
 .navbar-container {
+  align-items: center;
   background-color: $background;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  height: 40px;
 }
 
 .gradient {
@@ -23,4 +25,19 @@ $offwhite: #cccccc;
 .navbar-home {
   color: $offwhite;
   text-decoration: none;
+}
+
+.nickname, .signout {
+  margin-right: 10px;
+}
+
+.profile-area {
+  display: flex;
+  justify-content: space-around;
+}
+
+
+.signout {
+  color: $offwhite;
+  font-size: 20px;
 }

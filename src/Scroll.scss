@@ -3,10 +3,7 @@ $offwhite: #cccccc;
 .scrollUp {
   font-size: 50px;
   color: $offwhite;
-}
-
-
-.scroll-container {
   position: fixed;
-  bottom: 0;
+  right: 15px;
+  bottom: 15px;
 }

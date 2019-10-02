@@ -9,7 +9,7 @@ function Scroll() {
       showUnder={160}
       duration={1500}
       easing={'easeInOutCubic'}
-      className="scroll-container">
+      style={{'transitionDuration': '1s'}}>
       <FontAwesomeIcon icon={faCaretSquareUp} className="scrollUp"/>
     </ScrollToTop>
 )}
