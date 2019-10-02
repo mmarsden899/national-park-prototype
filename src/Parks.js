@@ -3,6 +3,7 @@ import axios from 'axios'
 import SinglePark from './SinglePark'
 import apiUrl from './apiConfig'
 import auth0Client from './Auth';
+import FilterButtons from './FilterButtons'
 
 class Parks extends Component {
   constructor (props) {
@@ -11,14 +12,22 @@ class Parks extends Component {
     this.state = {
       parks: [],
       modal: false,
-      selectedTarget: ''
+      selectedTarget: '',
+      user: {}
     }
   }
 
   async componentDidMount () {
-    const response = await axios(`${apiUrl}/parks`)
-    this.setState({ parks: response.data.parks })
-    console.log(auth0Client.getProfile())
+    const parkResponse = await axios(`${apiUrl}/parks`)
+    this.setState({ parks: parkResponse.data.parks })
+    this.getUser()
+  }
+
+  async getUser() {
+    if (auth0Client.isAuthenticated()) {
+      const userResponse = await axios(`${apiUrl}/users/${auth0Client.getProfile().nickname}`)
+      this.setState({user: userResponse.data.User[0]})
+    }
   }
 
   openModal = event => {
@@ -51,6 +60,7 @@ class Parks extends Component {
     ))
     return (
       <div className="container" onClick={this.closeModal}>
+      <FilterButtons/>
         {parksHTML}
         {this.state.modal ? <SinglePark target={this.state.selectedTarget}/> : null}
       </div>
