@@ -10,10 +10,10 @@ class FilterButtons extends Component {
   }
   render() {
     return (
-      <div>
-        <button></button>
-        <button></button>
-        <button></button>
+      <div className="filter-buttons">
+        <button>All</button>
+        <button>Visted</button>
+        <button>Not-Visited</button>
       </div>
     )
   }

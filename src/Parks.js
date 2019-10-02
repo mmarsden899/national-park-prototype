@@ -3,7 +3,6 @@ import axios from 'axios'
 import SinglePark from './SinglePark'
 import apiUrl from './apiConfig'
 import auth0Client from './Auth';
-import FilterButtons from './FilterButtons'
 
 class Parks extends Component {
   constructor (props) {
@@ -11,6 +10,7 @@ class Parks extends Component {
 
     this.state = {
       parks: [],
+      filter: [],
       modal: false,
       selectedTarget: '',
       user: {}
@@ -19,7 +19,7 @@ class Parks extends Component {
 
   async componentDidMount () {
     const parkResponse = await axios(`${apiUrl}/parks`)
-    this.setState({ parks: parkResponse.data.parks })
+    this.setState({ parks: parkResponse.data.parks, filter: parkResponse.data.parks })
     this.getUser()
   }
 
@@ -40,12 +40,50 @@ class Parks extends Component {
     }
   }
 
+  handleVisit = async event => {
+  const id = event.target.id
+  await axios({
+    url: apiUrl + `/Users/${this.state.user.nickname}`,
+    method: 'PATCH',
+    data: {
+      user: {
+        list: id
+      }
+    }
+  })
+}
+
+  visited = () => {
+    const filter = this.state.parks.filter((park) => {
+      return this.state.user.list.includes(park._id)
+    })
+    this.setState({filter: filter})
+  }
+
+  notVisited = () => {
+    const filter = this.state.parks.filter((park) => {
+      return !this.state.user.list.includes(park._id)
+    })
+    this.setState({filter: filter})
+  }
+
+  all = () => {
+    this.setState({filter: this.state.parks })
+  }
+
 
   render () {
-    const { parks } = this.state
-    const parksHTML = parks.map(park => (
+    const { filter } = this.state
+    const buttonsHTML =
+      <div className="filter-buttons">
+        <button onClick={this.all}>All</button>
+        <button onClick={this.visited}>Visted</button>
+        <button onClick={this.notVisited}>Not-Visited</button>
+      </div>
+    const parksHTML = filter.map(park => (
       <div key={park._id} onClick={this.openModal} id={park._id} className="parks">
         <div className="park-container">
+        <button onClick={this.handleVisit} id={park._id}>HEY</button>
         <img src={park.thumbnail}
              alt={"thumbnail of " + park.name}
              className="park-thumbnail"/>
@@ -60,7 +98,7 @@ class Parks extends Component {
     ))
     return (
       <div className="container" onClick={this.closeModal}>
-      <FilterButtons/>
+        {buttonsHTML}
         {parksHTML}
         {this.state.modal ? <SinglePark target={this.state.selectedTarget}/> : null}
       </div>

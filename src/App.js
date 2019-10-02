@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './App.scss';
 import './Navbar.scss';
 import './Scroll.scss';
+import './FilterButtons.scss';
 import Parks from './Parks'
 import {Route} from 'react-router-dom';
 import Header from './Header'
