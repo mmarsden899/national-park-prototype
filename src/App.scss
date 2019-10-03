@@ -3,6 +3,7 @@
 $background: #282c34;
 $backgroundTransp: rgba(40, 44, 52, .6);
 $offwhite: #cccccc;
+$offwhiteTransp: rgba(204, 204, 204, .6);
 
 * {
   margin: 0;
@@ -68,6 +69,7 @@ body {
 .filter-buttons:hover {
   background-color: $offwhite;
   color: $background;
+  box-shadow: 3px 6px #23272e;
 }
 
 .filter-buttons-div {
@@ -216,6 +218,12 @@ body {
   font-size: 50px;
   margin-left: -65px;
   padding-right: 15px;
+  color: $offwhite;
+  cursor: pointer;
+}
+
+.plusOrMinus:hover {
+  color: $offwhiteTransp;
 }
 
 .single-park-flex {

@@ -26,13 +26,31 @@ class Parks extends Component {
     const parkResponse = await axios(`${apiUrl}/parks`)
     this.setState({ parks: parkResponse.data.parks, filter: parkResponse.data.parks })
     this.getUser()
+    // const userResponse = await axios(`${apiUrl}/users/matt`)
+    // console.log(userResponse, userResponse.data.User.length)
   }
 
   async getUser() {
     if (auth0Client.isAuthenticated()) {
       const userResponse = await axios(`${apiUrl}/users/${auth0Client.getProfile().nickname}`)
       this.setState({user: userResponse.data.User[0]})
+      if (userResponse.data.User.length < 1) {
+        this.createUser()
+          .then(this.getUser)
+      }
     }
+  }
+
+  async createUser() {
+      await axios({
+        url: apiUrl + '/users',
+        method: 'POST',
+        data: {
+          user: {
+            nickname: auth0Client.getProfile().nickname
+          }
+        }
+      })
   }
 
   openModal = event => {
