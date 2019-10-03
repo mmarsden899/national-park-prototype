@@ -4,6 +4,9 @@ import SinglePark from './SinglePark'
 import apiUrl from './apiConfig'
 import auth0Client from './Auth';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlusCircle, faMinusCircle } from '@fortawesome/free-solid-svg-icons'
+
 class Parks extends Component {
   constructor (props) {
     super(props)
@@ -13,7 +16,9 @@ class Parks extends Component {
       filter: [],
       modal: false,
       selectedTarget: '',
-      user: {}
+      user: {
+        list: []
+      }
     }
   }
 
@@ -51,6 +56,7 @@ class Parks extends Component {
       }
     }
   })
+  this.getUser()
 }
 
   visited = () => {
@@ -74,16 +80,21 @@ class Parks extends Component {
 
   render () {
     const { filter } = this.state
+    const filler =
+      <div className="filler">
+      </div>
     const buttonsHTML =
-      <div className="filter-buttons">
-        <button onClick={this.all}>All</button>
-        <button onClick={this.visited}>Visted</button>
-        <button onClick={this.notVisited}>Not-Visited</button>
+      <div className="filter-buttons-div">
+        <button onClick={this.all} className="filter-buttons">All</button>
+        <button onClick={this.visited} className="filter-buttons">Visted</button>
+        <button onClick={this.notVisited} className="filter-buttons">Not-Visited</button>
       </div>
     const parksHTML = filter.map(park => (
-      <div key={park._id} onClick={this.openModal} id={park._id} className="parks">
-        <div className="park-container">
-        <button onClick={this.handleVisit} id={park._id}>HEY</button>
+      <div key={park._id} id={park._id} className="parks">
+      {auth0Client.isAuthenticated() ? this.state.user.list.includes(park._id) ?
+      <FontAwesomeIcon icon={faMinusCircle} onClick={this.handleVisit} id={park._id} className="plusOrMinus"/>
+    : <FontAwesomeIcon icon={faPlusCircle} onClick={this.handleVisit} id={park._id} className="plusOrMinus"/> : null}
+        <div className="park-container"onClick={this.openModal} id={park._id}>
         <img src={park.thumbnail}
              alt={"thumbnail of " + park.name}
              className="park-thumbnail"/>
@@ -98,7 +109,7 @@ class Parks extends Component {
     ))
     return (
       <div className="container" onClick={this.closeModal}>
-        {buttonsHTML}
+        {auth0Client.isAuthenticated() ? buttonsHTML : filler}
         {parksHTML}
         {this.state.modal ? <SinglePark target={this.state.selectedTarget}/> : null}
       </div>

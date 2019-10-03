@@ -13,7 +13,7 @@ $offwhite: #cccccc;
   background-color: $background;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-end;
   height: 40px;
 }
 
@@ -28,7 +28,12 @@ $offwhite: #cccccc;
 }
 
 .nickname, .signout {
-  margin-right: 10px;
+  margin-right: 15px;
+}
+
+.nickname {
+  color: $offwhite;
+  font-weight: 900;
 }
 
 .profile-area {
@@ -40,4 +45,5 @@ $offwhite: #cccccc;
 .signout {
   color: $offwhite;
   font-size: 20px;
+  cursor: pointer;
 }

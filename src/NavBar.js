@@ -1,8 +1,8 @@
 import React from 'react';
-import {Link, withRouter} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 import auth0Client from './Auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
+import { faSignOutAlt, faSignInAlt } from '@fortawesome/free-solid-svg-icons'
 
 function NavBar(props) {
   const signOut = () => {
@@ -13,12 +13,9 @@ function NavBar(props) {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <Link className="navbar-home" to="/">
-          home
-        </Link>
         {
           !auth0Client.isAuthenticated() &&
-          <button className="signin-button" onClick={auth0Client.signIn}>Sign In</button>
+          <FontAwesomeIcon icon={faSignInAlt} className="signout" onClick={auth0Client.signIn}/>
         }
         {
           auth0Client.isAuthenticated() &&

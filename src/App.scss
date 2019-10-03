@@ -28,8 +28,14 @@ body {
   min-height: 100vh;
 }
 
+.callback-load {
+  background-color: $background;
+  height: 100vh;
+  width: 100vw;
+}
+
 .container {
-  margin-top: 350px;
+  margin-top: 275px;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -42,6 +48,38 @@ body {
 .thirty-padding-top {
   padding-top: 30px;
 }
+
+.filler {
+  height: 25px;
+  margin-bottom: 25px;
+}
+
+.filter-buttons {
+  background-color: $background;
+  color: $offwhite;
+  font-weight: 900;
+  border: 0;
+  border-radius: 25px;
+  width: 100px;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.filter-buttons:hover {
+  background-color: $offwhite;
+  color: $background;
+}
+
+.filter-buttons-div {
+  height: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 50%;
+  margin: auto;
+  margin-bottom: 25px;
+}
+
 
 .header-app {
   font-family: 'Righteous', cursive;
@@ -108,6 +146,9 @@ body {
 }
 
 .parks {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
   margin: 0 auto;
 }
 
@@ -169,6 +210,12 @@ body {
   transition: 1s;
   width: 150px;
   transition: 1s;
+}
+
+.plusOrMinus {
+  font-size: 50px;
+  margin-left: -65px;
+  padding-right: 15px;
 }
 
 .single-park-flex {

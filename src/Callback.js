@@ -10,7 +10,9 @@ class Callback extends Component {
 
   render() {
     return (
-      <p>Loading profile...</p>
+      <div className="callback-load">
+        <p>Loading profile...</p>
+      </div>
     );
   }
 }
