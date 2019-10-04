@@ -7,7 +7,7 @@ class Auth {
       domain: 'dev-0r9j-iz3.auth0.com',
       audience: 'https://dev-0r9j-iz3.auth0.com/userinfo',
       clientID: '1HbLQ6nRcscQnN2UY5i79et3CRBQq3zQ',
-      redirectUri: 'https://mmarsden89.github.io/national-park-prototype/callback',
+      redirectUri: 'http://mmarsden89.github.io/national-park-prototype/callback',
       responseType: 'id_token',
       scope: 'openid profile'
     });
