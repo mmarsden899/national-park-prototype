@@ -3,15 +3,6 @@ import React, { Component } from 'react'
 const headerImage = "https://img.pngio.com/forest-silhouette-png-101-images-in-collection-page-2-forest-silhouette-png-1400_471.png"
 
 class Header extends Component {
-  constructor (props) {
-    super(props)
-
-    this.state = {
-    }
-  }
-
-  componentDidMount () {
-  }
 
 
   render () {

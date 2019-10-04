@@ -2,6 +2,8 @@
 
 $background: #282c34;
 $backgroundTransp: rgba(40, 44, 52, .6);
+$offwhite: #cccccc;
+$offwhiteTransp: rgba(204, 204, 204, .6);
 
 * {
   margin: 0;
@@ -12,10 +14,14 @@ p {
   text-align: left;
 }
 
+body {
+  background-color: $background;
+}
+
 .App-body {
   align-items: center;
   background-color: $background;
-  color: white;
+  color: $offwhite;
   display: flex;
   flex-direction: column;
   font-size: 25px;
@@ -23,8 +29,14 @@ p {
   min-height: 100vh;
 }
 
+.callback-load {
+  background-color: $background;
+  height: 100vh;
+  width: 100vw;
+}
+
 .container {
-  margin-top: 350px;
+  margin-top: 275px;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -37,6 +49,39 @@ p {
 .thirty-padding-top {
   padding-top: 30px;
 }
+
+.filler {
+  height: 25px;
+  margin-bottom: 25px;
+}
+
+.filter-buttons {
+  background-color: $background;
+  color: $offwhite;
+  font-weight: 900;
+  border: 0;
+  border-radius: 25px;
+  width: 100px;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.filter-buttons:hover {
+  background-color: $offwhite;
+  color: $background;
+  box-shadow: 3px 6px #23272e;
+}
+
+.filter-buttons-div {
+  height: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 50%;
+  margin: auto;
+  margin-bottom: 25px;
+}
+
 
 .header-app {
   font-family: 'Righteous', cursive;
@@ -103,12 +148,15 @@ p {
 }
 
 .parks {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
   margin: 0 auto;
 }
 
 .park-container {
   align-items: center;
-  border: 3px solid white;
+  border: 3px solid $offwhite;
   border-radius: 5px;
   display: flex;
   flex-direction: row;
@@ -142,7 +190,7 @@ p {
 
 .park-modal {
   background-color: $background;
-  border: 3px solid white;
+  border: 3px solid $offwhite;
   border-radius: 5px;
   display: block;
   height: 75vh;
@@ -158,12 +206,24 @@ p {
 }
 
 .park-thumbnail {
-  border: 5px solid white;
+  border: 5px solid $offwhite;
   border-radius: 50%;
   height: 150px;
   transition: 1s;
   width: 150px;
   transition: 1s;
+}
+
+.plusOrMinus {
+  font-size: 50px;
+  margin-left: -65px;
+  padding-right: 15px;
+  color: $offwhite;
+  cursor: pointer;
+}
+
+.plusOrMinus:hover {
+  color: $offwhiteTransp;
 }
 
 .single-park-flex {

@@ -1,0 +1,49 @@
+$background: #282c34;
+$background-transp: rgba(40, 44, 52,0);
+$offwhite: #cccccc;
+
+.navbar {
+  position: sticky;
+  width: 100%;
+  top: 0;
+}
+
+.navbar-container {
+  align-items: center;
+  background-color: $background;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  height: 40px;
+}
+
+.gradient {
+  height: 25px;
+  background: linear-gradient(0deg, $background-transp 0%, $background 100%);
+}
+
+.navbar-home {
+  color: $offwhite;
+  text-decoration: none;
+}
+
+.nickname, .signout {
+  margin-right: 15px;
+}
+
+.nickname {
+  color: $offwhite;
+  font-weight: 900;
+}
+
+.profile-area {
+  display: flex;
+  justify-content: space-around;
+}
+
+
+.signout {
+  color: $offwhite;
+  font-size: 20px;
+  cursor: pointer;
+}
