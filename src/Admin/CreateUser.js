@@ -27,11 +27,18 @@ class CreateUser extends Component {
       })
   }
 
+  async deleteUser() {
+      await axios({
+        url: `${apiUrl}/users/${auth0Client.getProfile().nickname}`,
+        method: 'DELETE'
+      })
+  }
+
 
   render () {
     return (
       <div>
-        <button onClick={this.createUser}>Create User</button>
+        <button onClick={this.deleteUser}>Create User</button>
       </div>
     )
   }

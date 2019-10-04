@@ -20,26 +20,28 @@ class Parks extends Component {
         list: []
       }
     }
+     this.getUser = this.getUser.bind(this)
   }
 
   async componentDidMount () {
     const parkResponse = await axios(`${apiUrl}/parks`)
     this.setState({ parks: parkResponse.data.parks, filter: parkResponse.data.parks })
+    const temp = {list: []}
+    this.setState({ user: temp})
     this.getUser()
-    // const userResponse = await axios(`${apiUrl}/users/matt`)
-    // console.log(userResponse, userResponse.data.User.length)
   }
 
-  async getUser() {
+  async getUser () {
     if (auth0Client.isAuthenticated()) {
       const userResponse = await axios(`${apiUrl}/users/${auth0Client.getProfile().nickname}`)
-      this.setState({user: userResponse.data.User[0]})
       if (userResponse.data.User.length < 1) {
         this.createUser()
-          .then(this.getUser)
-      }
+        .then(this.getUser)
+      } else {
+      this.setState({user: userResponse.data.User[0]})
     }
-  }
+    }
+    }
 
   async createUser() {
       await axios({
@@ -98,6 +100,7 @@ class Parks extends Component {
 
   render () {
     const { filter } = this.state
+    const { list } = this.state.user
     const filler =
       <div className="filler">
       </div>
@@ -109,9 +112,9 @@ class Parks extends Component {
       </div>
     const parksHTML = filter.map(park => (
       <div key={park._id} id={park._id} className="parks">
-      {auth0Client.isAuthenticated() ? this.state.user.list.includes(park._id) ?
+      {auth0Client.isAuthenticated() ? (list.includes(park._id) ?
       <FontAwesomeIcon icon={faMinusCircle} onClick={this.handleVisit} id={park._id} className="plusOrMinus"/>
-    : <FontAwesomeIcon icon={faPlusCircle} onClick={this.handleVisit} id={park._id} className="plusOrMinus"/> : null}
+    : <FontAwesomeIcon icon={faPlusCircle} onClick={this.handleVisit} id={park._id} className="plusOrMinus"/>) : null}
         <div className="park-container"onClick={this.openModal} id={park._id}>
         <img src={park.thumbnail}
              alt={"thumbnail of " + park.name}
