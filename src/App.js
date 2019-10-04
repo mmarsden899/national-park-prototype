@@ -3,7 +3,7 @@ import './App.scss';
 import './Navbar.scss';
 import './Scroll.scss';
 import Parks from './Parks'
-import {Route} from 'react-router-dom';
+import {Route, withRouter} from 'react-router-dom';
 import Header from './Header'
 import NavBar from './NavBar'
 import Callback from './Callback';
@@ -19,12 +19,8 @@ class App extends Component {
       <NavBar/>
       <Scroll/>
       <div className="App-body">
-        <Route exact path ="/" render={() => (
           <Header/>
-        )} />
-        <Route exact path="/" render={() => (
           <Parks/>
-        )} />
       </div>
       <Route exact path='/callback' component={Callback}/>
     </div>
@@ -32,4 +28,4 @@ class App extends Component {
 }
 }
 
-export default App;
+export default withRouter(App);
