@@ -19,8 +19,12 @@ class App extends Component {
       <NavBar/>
       <Scroll/>
       <div className="App-body">
+        <Route exact path ="/" render={() => (
           <Header/>
+        )} />
+        <Route exact path="/" render={() => (
           <Parks/>
+        )} />
       </div>
       <Route exact path='/callback' component={Callback}/>
     </div>
