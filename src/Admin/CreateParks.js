@@ -15,7 +15,6 @@ class CreateParks extends Component {
   async componentDidMount () {
     const response = await axios(`${apiUrl}/parks`)
     this.setState({ parks: response.data.parks })
-    console.log(parksData.length)
   }
 
   updateParks = () => {
