@@ -27,6 +27,7 @@ class Parks extends Component {
     const parkResponse = await axios(`${apiUrl}/parks`)
     this.setState({ parks: parkResponse.data.parks, filter: parkResponse.data.parks })
     const temp = {list: []}
+    console.log(parkResponse)
     this.setState({ user: temp})
     this.getUser()
   }
@@ -39,9 +40,9 @@ class Parks extends Component {
         .then(this.getUser)
       } else {
       this.setState({user: userResponse.data.User[0]})
+      }
     }
-    }
-    }
+  }
 
   async createUser() {
       await axios({

@@ -43,6 +43,7 @@ class CreateParks extends Component {
           park: {
             name: park.Name,
             image: park.Image,
+            thumbnail: park.Thumbnail,
             location: park.Location,
             established: park.Established,
             area: park.Area,
@@ -58,7 +59,7 @@ class CreateParks extends Component {
   render () {
     return (
       <div>
-        <button onClick={this.updateParks}>Send Park</button>
+        <button onClick={this.sendParks}>Send Park</button>
       </div>
     )
   }
