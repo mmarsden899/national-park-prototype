@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/national-park-prototype/precache-manifest.0cde808f98387d4f973362f20ac86f0a.js"
+  "/national-park-prototype/precache-manifest.7854186d6b4fac1191c6a1843f9b0c82.js"
 );
 
 self.addEventListener('message', (event) => {
