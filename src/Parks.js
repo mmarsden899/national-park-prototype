@@ -27,7 +27,6 @@ class Parks extends Component {
     const parkResponse = await axios(`${apiUrl}/parks`)
     this.setState({ parks: parkResponse.data.parks, filter: parkResponse.data.parks })
     const temp = {list: []}
-    console.log(parkResponse)
     this.setState({ user: temp})
     this.getUser()
   }
