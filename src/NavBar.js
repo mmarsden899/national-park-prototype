@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSignOutAlt, faSignInAlt } from '@fortawesome/free-solid-svg-icons'
 
 function NavBar(props) {
+  console.log(props)
   const signOut = () => {
     auth0Client.signOut();
     props.history.replace('/');
