@@ -99,18 +99,6 @@ const Parks = (props) => {
     });
   };
 
-  // const changefornow = async () => {
-  //   await axios({
-  //     url: apiUrl + `/users/mmarsden89`,
-  //     method: "PATCH",
-  //     data: {
-  //       user: {
-  //         list: [],
-  //       },
-  //     },
-  //   });
-  // };
-
   const removePark = async (id) => {
     let updated = [...userParkList].filter((item) => item !== id);
     setUserParkList(userParkList.filter((item) => item !== id));
@@ -202,7 +190,6 @@ const Parks = (props) => {
   return (
     <div className="container" onClick={closeModal}>
       {auth0Client.isAuthenticated() ? buttonsHTML : filler}
-      {/* <button onClick={changefornow}>change for now</button> */}
       {parksHTML}
       {modal ? <SinglePark target={selectedTarget} /> : null}
     </div>
